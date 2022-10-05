@@ -2,7 +2,7 @@
 <div class="container" id="container">
   <div class="overlay-container">
     <form #registerform="ngForm" (ngSubmit)="RegisterUser()">
-      <h1>Sign up</h1>
+      <h1 class="right-button">Sign up</h1>
       <div class="form-group">
           <label for="username">User Name:</label>
           <input type="text" class="form-control" id="username" placeholder="Enter User Name" name="username" [(ngModel)]="user.username" 
@@ -36,10 +36,10 @@
 
 	<div class="form-container sign-in-container">
     <div class="overlay">
-			<div class="overlay-panel overlay-left">
+			<!-- <div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<button class="ghost" id="signIn">Sign In</button>
-			</div>
+			</div> -->
 			<div class="overlay-panel overlay-right">
 				<h1>Hello</h1>
         <p>Existing user ? Login here</p>

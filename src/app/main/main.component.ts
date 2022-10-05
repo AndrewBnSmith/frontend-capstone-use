@@ -11,16 +11,24 @@ import { Goal } from '../Models/goal';
 export class MainComponent implements OnInit {
 
   goals!: Goal[];
+  goalList!: Goal[];
   constructor(private goalService : GoalsService , private router : Router) { }
 
   ngOnInit(): void {
     this.getGoals();
+    this.getAllGoals();
   }
 
   getGoals(){
     this.goalService.getGoalsCount().subscribe(data => {
       this.goals = data;
       console.log(this.goals);
+    });
+  }
+
+  private getAllGoals() {
+    this.goalService.getGoalsList().subscribe(data => {
+      this.goalList = data;
     });
   }
 

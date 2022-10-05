@@ -36,7 +36,7 @@
         <!-- Circle Buttons -->
         <div class="card shadow mb-4">
             <a href="#edit_info" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapse">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Informations</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit</h6>
             </a>
           <div class="collapse show" id="edit_info">
             <div class="card-body">
@@ -65,7 +65,7 @@
                 <div class="form-group">
                   <div class="custom-control custom-checkbox small">
                     <input type="checkbox" class="custom-control-input" id="infoCheck">
-                    <label class="custom-control-label" for="infoCheck">Confirm your update</label>
+                    <label class="custom-control-label" for="infoCheck">Confirm update</label>
                   </div>
                 </div>
                 <input type="submit" [disabled]="infoform.form.invalid" class="btn btn-primary btn-user btn-block" value="Update profile">
@@ -93,7 +93,7 @@
                   <input type="password" name="old_password" class="form-control form-control-user" id="exampleInputOld" placeholder="Enter old password..."
                    required (ngModel)="user_session.password" #old_password="ngModel" [class.is-invalid]="old_password.invalid && old_password.touched">
                    <small class="text-danger" [class.d-none]="old_password.valid || old_password.untouched">Password is required field. </small>
-                   <small class="text-danger" [class.d-none]="old_password.value==password.value">Enter your actuel password</small>
+                   <small class="text-danger" [class.d-none]="old_password.value==password.value">Enter current password</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputNew">New password :</label>
