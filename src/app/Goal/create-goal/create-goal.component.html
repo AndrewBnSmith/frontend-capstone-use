@@ -1,0 +1,13 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Create Goal</h3>
+    <form #addGoalForm="ngForm" (ngSubmit) = "onSubmit()">
+        <div class="form-group">
+            <label for="name">Name :</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="goal.name" name="name"
+            #name="ngModel" [class.is-invalid]="name.invalid && name.touched" required>
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">name is required field</small>
+        </div>
+        <br>       
+        <button class="btn btn-success" [disabled]="addGoalForm.form.invalid" type="submit">Add Goal</button>
+    </form>
+</div>
