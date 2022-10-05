@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Profile successfull updated',
+        title: 'Profile successfully updated',
         showConfirmButton: false,
         timer: 1500
       })
@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Password successfull updated',
+        title: 'Password successfully updated',
         showConfirmButton: false,
         timer: 1500
       })
