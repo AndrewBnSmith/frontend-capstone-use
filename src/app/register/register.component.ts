@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Succesfully registred ' + data.username,
+          title: 'Successfully registered ' + data.username,
           showConfirmButton: false,
           timer: 1500
         })
