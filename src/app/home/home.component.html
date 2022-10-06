@@ -13,8 +13,8 @@
       <hr class="sidebar-divider my-0">
       <body>
         <ul>
-          <li><a class="active" href="home">Home</a></li>
-          <li><a href="#news">Dashboard</a></li>
+          <li><a class="active" href="home">Dashboard</a></li>
+          
           <li><a routerLink="create-goal" >Add Goal</a></li>
           <li><a routerLink="goals">List Goals</a></li>
         
@@ -41,7 +41,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" routerLink="profile" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome {{user_session.username}}</span>
+                <span class="test">Welcome {{user_session.username}}</span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

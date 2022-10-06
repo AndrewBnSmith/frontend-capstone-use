@@ -1,13 +1,32 @@
 <div class="container">
-    <h3>View Goal Details</h3>
-    <div class="row">
-        <div class="col-md-3">
-            <label><b>ID :</b></label>{{goal.id}}
+    <div class="card" style="width: 35%;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h1 class="card-title">{{goal.name}}</h1>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
-        <div class="col-md-3">
-            <label><b>Name :</b></label>{{goal.name}}
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Goal Total: ${{goal.goalTotal}}</li>
+          <li class="list-group-item">Start Date: {{goal.fromDate}}</li>
+          <li class="list-group-item">End Date: {{goal.toDate}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Edit Goal</a>
+          <a href="#" class="card-link">Delete Goal</a>
         </div>
-    </div>
-
-    <a class="btn btn-primary text-light" [routerLink]="['/home/goals']">Return to list</a>
+      </div>
+      <div class="chart" *ngIf="chart">
+        <canvas id="canvas">{{ chart }}</canvas>
+      </div>
+        
 </div>
+
+
+
+
+
+
+
+
+       
+

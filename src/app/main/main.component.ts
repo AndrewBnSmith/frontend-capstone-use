@@ -9,9 +9,10 @@ import { Goal } from '../Models/goal';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
   goals!: Goal[];
   goalList!: Goal[];
+
+
   constructor(private goalService : GoalsService , private router : Router) { }
 
   ngOnInit(): void {

@@ -1,13 +1,93 @@
-<div class="col-md-6 offset-md-3">
-    <h3>Create Goal</h3>
-    <form #addGoalForm="ngForm" (ngSubmit) = "onSubmit()">
-        <div class="form-group">
-            <label for="name">Name :</label>
-            <input type="text" class="form-control" id="name" [(ngModel)]="goal.name" name="name"
-            #name="ngModel" [class.is-invalid]="name.invalid && name.touched" required>
-            <small class="text-danger" [class.d-none]="name.valid || name.untouched">name is required field</small>
+<div class="container">
+
+    <div class="col-md-6 ">
+        <h3>Create Goal</h3>
+        <form #addGoalForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Name :</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="goal.name" name="name" #name="ngModel"
+                    [class.is-invalid]="name.invalid && name.touched" required>
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">name is required </small>
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+            <br>
+            <div class="form-group">
+                <label for="goalTotal">Total Goal Amount :</label>
+                <input type="number" class="form-control" appearance="fill" id="goalTotal" [(ngModel)]="goal.goalTotal"
+                    name="goalTotal" #goalTotal="ngModel" [class.is-invalid]="goalTotal.invalid && goalTotal.touched"
+                    required>
+                <small class="text-danger" [class.d-none]="goalTotal.valid || goalTotal.untouched">Total is required
+                </small>
+                <mat-slider class="example-margin" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min"
+                    [step]="step" [thumbLabel]="thumbLabel" [tickInterval]="getSliderTickInterval()"
+                    [(ngModel)]="goal.goalTotal" [vertical]="vertical" aria-labelledby="example-name-label">
+                </mat-slider>
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+            <div class="form-group">
+                <label for="contribute">Total to contribute :</label>
+                <input type="number" class="form-control" id="contribute" [(ngModel)]="goal.contribute"
+                    name="contribute" #contribute="ngModel"
+                    [class.is-invalid]="contribute.invalid && contribute.touched" required>
+                <small class="text-danger" [class.d-none]="contribute.valid || contribute.untouched">name is required
+                </small>
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+            <div class="form-group">
+                <label for="fromDate">Start Date :</label>
+                <input type="date" (change)="SendDataonChange($event)" class="form-control" id="fromDate"
+                    [(ngModel)]="goal.fromDate" name="fromDate" #fromDate="ngModel"
+                    [class.is-invalid]="fromDate.invalid && fromDate.touched" required>
+                <small class="text-danger" [class.d-none]="fromDate.valid || fromDate.untouched">Start date is
+                    required</small>
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+            <div class="form-group">
+                <label for="toDate">End Date :</label>
+                <input type="date" (change)="SendDataonChange($event)" class="form-control" id="toDate"
+                    [(ngModel)]="goal.toDate" name="toDate" #toDate="ngModel"
+                    [class.is-invalid]="toDate.invalid && toDate.touched" required>
+                <small class="text-danger" [class.d-none]="toDate.valid || toDate.untouched">End date is
+                    required</small>
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+            <button class="btn btn-success" [disabled]="addGoalForm.form.invalid" type="submit">Add Goal</button>
+        </form>
+    </div>
+    <div class="result-box">
+        <div class="result">
+            
         </div>
-        <br>       
-        <button class="btn btn-success" [disabled]="addGoalForm.form.invalid" type="submit">Add Goal</button>
-    </form>
+    </div>
+
 </div>
+
+<div class="controls">
+    <input
+        #fromInput
+        type="text"
+        [value]="defaultFrom"
+        (input)="parseDates( fromInput.value, toInput.value )"
+        placeholder="From:"
+        class="input"
+    />
+    <span class="separator">
+        &mdash;
+    </span>
+    <input
+        #toInput
+        type="text"
+        [value]="defaultTo"
+        (input)="parseDates( fromInput.value, toInput.value )"
+        placeholder="To:"
+        class="input"
+    />
+</div>
+<ul *ngIf="deltas.length" class="deltas">
+    <li *ngFor="let delta of deltas" class="delta">
+        {{ delta }}
+    </li>
+</ul>
+
+

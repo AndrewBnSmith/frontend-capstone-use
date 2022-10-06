@@ -6,6 +6,33 @@
             <input type="text" class="form-control" id="name" [(ngModel)]="goal.name" name="name">
         </div>
         <br>
+        <div class="form-group">
+            <label for="goalTotal">Total Goal Amount :</label>
+            <input type="text" class="form-control" id="goalTotal" [(ngModel)]="goal.goalTotal" name="goalTotal"
+            #goalTotal="ngModel" [class.is-invalid]="goalTotal.invalid && goalTotal.touched" required>
+            <small class="text-danger" [class.d-none]="goalTotal.valid || goalTotal.untouched">Total is required </small>
+        </div> 
+        <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+        <div class="form-group">
+            <label for="contribute">Total to contribute :</label>
+            <input type="text" class="form-control" id="contribute" [(ngModel)]="goal.contribute" name="contribute"
+            #contribute="ngModel" [class.is-invalid]="contribute.invalid && contribute.touched" required>
+            <small class="text-danger" [class.d-none]="contribute.valid || contribute.untouched">name is required </small>
+        </div> 
+        <!-- ---------------------------------------------------------------------------------------------------------------------- -->     
+        <div class="form-group">
+            <label for="fromDate">Start Date :</label>
+            <input type="date" (change)="SendDataonChange($event)" class="form-control" id="fromDate" [(ngModel)]="goal.fromDate" name="fromDate"
+            #fromDate="ngModel" [class.is-invalid]="fromDate.invalid && fromDate.touched" required>
+            <small class="text-danger" [class.d-none]="fromDate.valid || fromDate.untouched">Start date is required</small>
+        </div>
+        <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+        <div class="form-group">
+            <label for="toDate">End Date :</label>
+            <input type="date" (change)="SendDataonChange($event)" class="form-control" id="toDate" [(ngModel)]="goal.toDate" name="toDate"
+            #toDate="ngModel" [class.is-invalid]="toDate.invalid && toDate.touched" required>
+            <small class="text-danger" [class.d-none]="toDate.valid || toDate.untouched">End date is required</small>
+        </div> 
         <button class="btn btn-success" type="submit">Update goal</button>
     </form>
     </div>

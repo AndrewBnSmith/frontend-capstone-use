@@ -10,10 +10,10 @@ import { User } from '../Models/user';
 })
 export class HomeComponent implements OnInit {
 
-  user_session : any;
+ 
+ user_session : any;
   user : User = new User();
   constructor(private service : RegistrationService , private router : Router) { }
-
   ngOnInit(): void {
     if(sessionStorage.getItem("user_id")==null){
       this.router.navigate(['/login']);

@@ -1,3 +1,4 @@
+
 .sidebar{
     background: linear-gradient(120deg, #024136, #8df5e4);
 }
@@ -7,12 +8,12 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+
   }
   
   li {
     float: left;
-    border-right:1px solid #bbb;
+    border-right:1px solid rgb(0, 0, 0);
   }
   
   li:last-child {
@@ -21,7 +22,7 @@ ul {
   
   li a {
     display: block;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -32,7 +33,14 @@ ul {
   }
   
   .active {
-    background-color: #04AA6D;
+    background-color: #f00202;
+  }
+
+  .container{
+    width: auto;
+  }
+  .test{
+    background-color: white;
   }
 
   

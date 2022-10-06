@@ -22,6 +22,7 @@ const routes: Routes = [
     { path : 'update-goal/:id' , component : UpdateGoalComponent},
     { path : 'details-goal/:id' , component : GoalDetailsComponent},
     ] },
+  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -10,16 +10,40 @@ import { GoalsService } from 'src/services/goals.service';
 })
 export class GoalDetailsComponent implements OnInit {
 
-  id!:number;
+  chart = [];
+  id!: number;
   goal!: Goal;
-  constructor(private goalService : GoalsService , private route : ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.id=this.route.snapshot.params['id'];
-    this.goal = new Goal();
-    this.goalService.GetGoalById(this.id).subscribe(data=>{
-      this.goal = data;
-    })
+
+  view: any = [500, 500];
+
+  // options
+  gradient: boolean = true;
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+  isDoughnut: boolean = true;
+  legendPosition: any = 'below';
+
+  colorScheme: any = {
+    domain: ['#5AA454', '#A10A28']
+  };
+  data: any;
+
+
+  constructor(private goalService: GoalsService, private route: ActivatedRoute) {
+
   }
 
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.goal = new Goal();
+    this.goalService.GetGoalById(this.id).subscribe(data => {
+      this.goal = data;
+    });
+  }  
 }
+
+
+  
+
+

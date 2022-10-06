@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Goal } from 'src/app/Models/goal';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,4 +36,6 @@ export class GoalsService {
   deleteGoal(id : number): Observable<Object>{
     return this.httpClient.delete(`${this.url+'goals'}/${id}`);
   }
+
+
 }

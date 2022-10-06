@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Goal } from 'src/app/Models/goal';
@@ -13,6 +14,10 @@ export class UpdateGoalComponent implements OnInit {
 
   id!:number;
   goal: Goal = new  Goal();
+
+  fromDate!: Date;
+  pipe = new DatePipe('en-US');
+  newDate!: any;
   constructor(private goalService : GoalsService , private route : ActivatedRoute , private router : Router) { }
 
   ngOnInit(): void {
@@ -24,6 +29,7 @@ export class UpdateGoalComponent implements OnInit {
 
   onSubmit(){
     console.log(this.goal);
+    this.saveGoal();
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -38,6 +44,28 @@ export class UpdateGoalComponent implements OnInit {
 
   goToGoalList(){
     this.router.navigate(['/home/goals']);
+  }
+
+  changeFormat(fromDate: Date) {
+    let ChangedFormat = this.pipe.transform(this.fromDate, 'dd/MM/YYYY');
+    this.newDate = ChangedFormat;
+  }
+
+  onClick() {
+    this.changeFormat(this.fromDate);
+    console.log(this.newDate);
+  }
+
+  SendDataonChange(event: any) {
+    console.log(event.target.value);
+  }
+
+  saveGoal(){
+    this.goalService.createGoal(this.goal).subscribe(data => {
+      console.log(data);
+      this.goToGoalList();
+    },
+    error => console.log(error));
   }
 
 }
