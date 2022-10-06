@@ -55,4 +55,9 @@ export class ProfileComponent implements OnInit {
     document.getElementById("edits")?.scrollIntoView({behavior:"smooth"});
   }
 
+
+  
+
+
 }
+
