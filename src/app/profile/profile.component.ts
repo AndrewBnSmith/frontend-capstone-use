@@ -54,9 +54,4 @@ export class ProfileComponent implements OnInit {
   goToUpdate(){
     document.getElementById("edits")?.scrollIntoView({behavior:"smooth"});
   }
-
-
-  
-
-
 }

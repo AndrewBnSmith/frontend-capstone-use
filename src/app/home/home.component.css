@@ -3,6 +3,7 @@
     background: linear-gradient(120deg, #024136, #8df5e4);
 }
 
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -29,8 +30,9 @@ ul {
   }
   
   li a:hover:not(.active) {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 252, 252);
   }
+  
   
   .active {
     background-color: #f00202;
