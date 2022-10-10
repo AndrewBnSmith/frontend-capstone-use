@@ -1,3 +1,15 @@
 .right-button{
     background-color: white;
 }
+.main-container{
+    background-color: #e9f7e9;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5%;
+}
+.welcome-banner{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+

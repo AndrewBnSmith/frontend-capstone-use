@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
       } ,
       error =>{
         console.log("exception occured");

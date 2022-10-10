@@ -11,16 +11,6 @@
     justify-content: center;
 }
 
-
-.signup{
-    background-color: white;
-    color: white;
-}
-
-#ghost{
-    background-color: white;
-}
-
 body {
 	background: #f6f5f7;
 	display: flex;
@@ -77,8 +67,8 @@ button:focus {
 }
 
 button.ghost {
-	background-color: transparent;
-	border-color: #ece2e2;
+	background-color: #e9f7e9;
+	
 }
 
 form {

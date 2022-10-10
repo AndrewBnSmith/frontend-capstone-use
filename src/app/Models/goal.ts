@@ -3,7 +3,7 @@ export class Goal {
     name!: string;
     goalTotal!: number 
     contribute!: number;
-    fromDate!: Date;
-    toDate!: Date;
+    years!:number;
+    
    
 }

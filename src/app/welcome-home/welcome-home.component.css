@@ -1,0 +1,50 @@
+.banner{
+    background-image:url('../../assets/img/pic.webp') ;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.content{
+    top: 30%;
+    left: 20%;
+    position: absolute;
+}
+
+.banner h1{
+    color: grey;
+    font-size: 60px;
+    font-weight: bold;
+    
+   
+
+}
+.stepBox h1{
+    font-size: 50px;
+    font-weight:bold;
+   color: white;
+    background-color: rgb(green);
+
+    
+   
+}
+.stepBox{
+    color: green;
+    text-align: center;
+    padding: 20px 20px;
+    border-radius:5px ;
+    background-color: green;
+    font-size: 30px;
+    font-weight:bold;
+
+}
+.stepBox p{
+    color: #fff;
+    font-style: italic;
+
+}
+.highlight{
+    color:green;
+     font-weight: bold;
+     
+}

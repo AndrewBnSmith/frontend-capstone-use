@@ -25,6 +25,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material/slider';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { WelcomeHomeComponent } from './welcome-home/welcome-home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MainComponent,
     ProfileComponent,
     RegisterComponent,
+    WelcomeHomeComponent,
+    NavbarComponent,
+    FooterComponent,
 
     
  
@@ -58,7 +66,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MatCardModule,
     MatMenuModule,
     NgxChartsModule,
-    MatSliderModule
+    MatSliderModule,
+    NgApexchartsModule,
+    DatePipe
   ],
   providers: [],
   bootstrap: [AppComponent]

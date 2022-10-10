@@ -9,10 +9,14 @@ import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateGoalComponent } from './Goal/update-goal/update-goal.component';
+import { WelcomeHomeComponent } from './welcome-home/welcome-home.component';
 const routes: Routes = [
+  {path:'home-welcome/login',component:LoginComponent},
   {path:'login',component:LoginComponent},
-  {path:'',redirectTo : 'login' , pathMatch : 'full'},
+  {path:'',redirectTo : 'home-welcome' , pathMatch : 'full'},
+  {path:'home-welcome',component:WelcomeHomeComponent},
   {path:'register',component:RegisterComponent},
+  // {path:'register-success',redirectTo: 'home'},
   {path:'home',component:HomeComponent,
   children : [
     { path : '' , component : MainComponent },

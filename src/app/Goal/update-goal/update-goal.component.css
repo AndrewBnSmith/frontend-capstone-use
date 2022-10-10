@@ -1,0 +1,66 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.result-box{
+  
+    width: 50%;
+   justify-content: center;
+   border-color: black;
+  border: 1px;
+  border-style: solid;
+   
+}
+.monthly{
+  background-color: #183558;
+  color: white;
+  border-color: black;
+  border: 1px;
+  border-style: solid;
+  border-radius: 3%;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 30%;
+
+
+  
+}
+.bottom-border{
+  border-bottom: 1px solid rgb(0, 0, 0);
+  width: 100%;
+  margin-bottom: 3%;
+  
+}
+
+.top-content{
+  
+}
+.top{
+
+  display: flex;
+  justify-content: center;
+}
+
+.bottom{
+  display: flex;
+  justify-content: center;
+}
+
+.result{
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  
+}
+.monthly-data{
+justify-content: center;
+display: flex;
+margin-top: 5%;
+  
+}
+.monthly-amount{
+  justify-content: center;
+  display: flex;
+}

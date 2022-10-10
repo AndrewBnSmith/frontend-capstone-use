@@ -1,7 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/operators';
 import { Goal } from 'src/app/Models/goal';
+
+
 
 
 
@@ -35,6 +38,11 @@ export class GoalsService {
 
   deleteGoal(id : number): Observable<Object>{
     return this.httpClient.delete(`${this.url+'goals'}/${id}`);
+  }
+
+  getChartData(id:number): Observable<any>{
+    return this.httpClient.get<any>(`${this.url+'goals'}/${id}`)
+    .pipe(map(result => result));
   }
 
 

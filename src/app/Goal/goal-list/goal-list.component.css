@@ -1,4 +1,11 @@
-.center{
-   display: flex;
-   justify-content: center;
+li{
+   list-style:none;
+}
+
+.btn{
+   margin-right: 10px;
+}
+
+.text-muted{
+   font-size: 12px;
 }
