@@ -1,18 +1,25 @@
 .navbar-light .navbar-nav .nav-link
 {   
     
-    color: var(--secondary-color);
+    color: white;
 }
 .navbar-light .navbar-nav .nav-link.active-link
 {
-    color: var(--primary-color);
-    text-decoration: underline;
+    color: white;
+    
+    
 }
 nav{
     position: fixed;
     top: 0px;
 }
-
+a{
+    color: white;
+}
 a:hover 
-{ color: rgb(79, 228, 79);
+{ color: #f7ee9c;
+}
+
+.image{
+    height: 70px;
 }

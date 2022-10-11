@@ -1,17 +1,15 @@
-<div class="row">
 
-    <div class="goals-container">
-        <h2>Goals</h2>
+  <div class="parent-flex">
     <div class="card-deck">
-        <div class="card text-center" *ngFor="let goal of goalList">
-          <div class="result-box">
-        </div>
-            <div class="card-body">
-              <h5 class="card-title ">{{goal.name}}</h5>
-              <p class="card-text ">{{goal.name}}</p>
-              <a href="#" class="btn btn-primary" style="text-align: center;">Goal complete</a>
-            </div>
+      <div class="card text-center" *ngFor="let goal of goalList">
+        <div class="result-box">
+      </div>
+          <div class="card-body">
+            <h5 class="card-title ">{{goal.name}}</h5>
+            <p class="card-text ">{{goal.name}}</p>
+            <a href="#" class="btn btn-primary" style="text-align: center;">Goal complete</a>
           </div>
-    </div>
-    </div>
-</div>
+        </div>
+  </div>
+
+

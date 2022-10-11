@@ -1,6 +1,6 @@
 .banner{
-    background-image:url('../../assets/img/pic.webp') ;
-    height: 500px;
+    background-image:url('../../assets/img/image.jpg') ;
+    height: 610px;
     background-position: center;
     background-size: cover;
 }
@@ -23,17 +23,17 @@
     font-size: 50px;
     font-weight:bold;
    color: white;
-    background-color: rgb(green);
+    background-color: rgb(#00683e);
 
     
    
 }
 .stepBox{
-    color: green;
+    color: #00683e;
     text-align: center;
     padding: 20px 20px;
     border-radius:5px ;
-    background-color: green;
+    background-color: #00683e;
     font-size: 30px;
     font-weight:bold;
 
@@ -44,7 +44,7 @@
 
 }
 .highlight{
-    color:green;
+    color:#00683e;
      font-weight: bold;
      
 }

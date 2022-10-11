@@ -22,6 +22,7 @@ const routes: Routes = [
   // {path:'register-success',redirectTo: 'home'},
   {path:'home',component:HomeComponent,
   children : [
+    { path : '' , component : MainComponent },
     { path : 'home' , component : MainComponent },
     { path : "profile" , component : ProfileComponent },
     { path : "create-goal" , component : CreateGoalComponent },
