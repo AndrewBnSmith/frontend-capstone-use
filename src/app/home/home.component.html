@@ -1,113 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
 
-  <div id="wrapper">
+    <!-- https://getbootstrap.com/docs/4.0/examples/ -->
 
-    <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
 
-  
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]="['./']">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Capstone name </div>
-      </a>
-      <hr class="sidebar-divider my-0">
-      <body>
-        <ul>
-          <li><a class="active" href="home">Dashboard</a></li>
-          
-          <li><a routerLink="create-goal" >Add Goal</a></li>
-          <li><a routerLink="goals">List Goals</a></li>
-        
-          <li style="float:right"><a href="#about">About</a></li>
-        </ul>
-        
-        </body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-      <hr class="sidebar-divider">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/dashboard/dashboard.css">
 
-      <hr class="sidebar-divider d-none d-md-block">
+    <title>Dashboard Template for Bootstrap 4</title>
+  </head>
+  <body>
 
-    </ul>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">EveryDollar</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+       
+      </ul>
+    </nav>
 
-    <div id="content-wrapper" class="d-flex flex-column">
-      <div id="content">
-
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" routerLink="profile" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="test">Welcome {{user_session.username}}</span>
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" routerLink="profile">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  My Profile
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link " routerLink="home">
+                  <span data-feather=""></span>
+                  Dashboard <span class="sr-only">(current)</span>
                 </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  routerLink="create-goal">
+                  <span data-feather="file"></span>
+                  Create a New Goal
                 </a>
-              </div>
-            </li>
-
-          </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container">
-            <router-outlet></router-outlet>
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Created by <a target="_blank" href="">Group one</a>
-                - All rights reserved &copy; {{date}}</span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  routerLink="goals">
+                  <span data-feather="file"></span>
+                  View all Goals
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  routerLink="about">
+                  <span data-feather="file"></span>
+                  About Us
+                </a>
+              </li>
+            </ul>
           </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
+        </nav>
 
-    </div>
-    <!-- End of Content Wrapper -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <h1>Welcome</h1>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                {{user_session.username}}
+              </button>
+            </div>
+          </div>
 
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Logout?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="#" (click)="destroy()">Logout</a>
-        </div>
+          <router-outlet></router-outlet>
+        </main>
       </div>
     </div>
-  </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    
+  </body>
+</html>

@@ -30,6 +30,7 @@ import { WelcomeHomeComponent } from './welcome-home/welcome-home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DatePipe } from '@angular/common';
     WelcomeHomeComponent,
     NavbarComponent,
     FooterComponent,
+    AboutComponent,
 
     
  

@@ -90,6 +90,7 @@ chartDataLabels: ApexDataLabels = {
       timer: 1500
     })
     this.saveGoal();
+    this.router.navigate(['/home']);
 
   }
 
