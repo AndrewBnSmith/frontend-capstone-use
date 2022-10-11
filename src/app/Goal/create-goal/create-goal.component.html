@@ -39,6 +39,11 @@
                 </small>
             </div>
 
+            <div class="form-group">
+                <label for="test">Add an Image :</label>
+                <input type="text" value="https://img.cdn4dd.com/p/fit=cover,width=150,height=150,format=auto,quality=50/media/photos/3c050b3f-23a4-4f1a-9440-c322d120293f-retina-large.jpg" class="form-control" id="image" [(ngModel)]="goal.image" name="image" #image="ngModel">            
+            </div>
+
 
 
             <button class="btn btn-success" [disabled]="addGoalForm.form.invalid" type="submit">Add Goal</button>

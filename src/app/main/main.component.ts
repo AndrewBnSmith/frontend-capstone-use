@@ -33,4 +33,15 @@ export class MainComponent implements OnInit {
     });
   }
 
+  updateGoal(id:number){
+    this.router.navigate(['/home/update-goal',id]);
+    
+  }
+
+  detailsGoal(id:number){
+    this.router.navigate(['/home/details-goal',id]);
+  }
+
+  
+
 }

@@ -12,14 +12,15 @@ import { UpdateGoalComponent } from './Goal/update-goal/update-goal.component';
 import { WelcomeHomeComponent } from './welcome-home/welcome-home.component';
 import { AboutComponent } from './about/about.component';
 const routes: Routes = [
+  {path:'',component:WelcomeHomeComponent},
   {path:'home-welcome/login',component:LoginComponent},
+  {path:'login/register',component:RegisterComponent},
+  {path:'login/register/login',component:LoginComponent},
   {path:'login',component:LoginComponent},
   {path:'',redirectTo : 'home-welcome' , pathMatch : 'full'},
-  {path:'home-welcome',component:WelcomeHomeComponent},
   { path : "home/about" , component : AboutComponent },
-  
   {path:'home-welcome/register',component:RegisterComponent},
-  // {path:'register-success',redirectTo: 'home'},
+  {path:'about',component:AboutComponent},
   {path:'home',component:HomeComponent,
   children : [
     { path : '' , component : MainComponent },
@@ -28,9 +29,19 @@ const routes: Routes = [
     { path : "create-goal" , component : CreateGoalComponent },
     { path : "goals" , component : GoalListComponent },
     { path : 'update-goal/:id' , component : UpdateGoalComponent},
+    {path:'register',component:RegisterComponent},
     { path : 'details-goal/:id' , component : GoalDetailsComponent},
     
     ] },
+  //   {path:'home-welcome',component:WelcomeHomeComponent,
+  // children : [
+  //   {path: "", component: WelcomeHomeComponent},
+  //   { path : 'login' , component : LoginComponent },
+  //   { path : 'register' , component : RegisterComponent },
+  //   { path : 'about' , component : AboutComponent },
+   
+   
+  //   ] },
   
 ];
 @NgModule({

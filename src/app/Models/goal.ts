@@ -4,6 +4,7 @@ export class Goal {
     goalTotal!: number 
     contribute!: number;
     years!:number;
+    image!:string;
     
    
 }

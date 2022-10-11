@@ -1,15 +1,19 @@
-
-  <div class="parent-flex">
-    <div class="card-deck">
-      <div class="card text-center" *ngFor="let goal of goalList">
-        <div class="result-box">
-      </div>
-          <div class="card-body">
-            <h5 class="card-title ">{{goal.name}}</h5>
-            <p class="card-text ">{{goal.name}}</p>
-            <a href="#" class="btn btn-primary" style="text-align: center;">Goal complete</a>
-          </div>
-        </div>
+<div class="card " *ngFor="let goal of goalList" style="width: 18rem;">
+    <img class="card-img-top" src="{{goal.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title">{{goal.name}}</h2>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Goal Amount: ${{goal.goalTotal - goal.contribute}}</li>
+      <li class="list-group-item">{{goal.years *12}} payments of ${{(goal.goalTotal-goal.contribute) / (goal.years*12)}}</li>
+    </ul>
+    <div class="card-body">
+      <button (click)="updateGoal(goal.id)" class="btn btn-success">Update</button>
+      <button (click)="detailsGoal(goal.id)" class="btn btn-secondary" style="margin-left: 2%;"> Goal Details</button>
+    </div>
   </div>
+
+
 
 

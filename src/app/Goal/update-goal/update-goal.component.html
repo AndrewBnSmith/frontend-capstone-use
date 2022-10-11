@@ -27,6 +27,11 @@
                 <small class="text-danger" [class.d-none]="years.valid || years.untouched">years are required
                 </small>
             </div>
+            <div class="form-group">
+                <label for="test">Add an Image :</label>
+                <input type="text" class="form-control" id="image" [(ngModel)]="goal.image" name="image" #image="ngModel">            
+            </div>
+            
             <button class="btn btn-success" type="submit">Update goal</button>
         </form>
         </div>
