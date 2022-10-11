@@ -6,12 +6,35 @@
     
 }
 
-.over-container{
+.backrgound {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-body {
+.background::before {    
+	content: "";
+	background: url('../../assets/img/log_in2.jpg') no-repeat center;
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.6;
+}
+
+
+.over-container{
+    display: flex;
+    justify-content: center;
+	
+}
+
+/*body {
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
@@ -20,7 +43,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
-}
+}*/
 
 h1 {
 	text-align: center;
