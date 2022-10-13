@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApexNonAxisChartSeries, ApexChart, ApexTitleSubtitle, ApexDataLabels } from 'ng-apexcharts';
 import { Goal } from 'src/app/Models/goal';
 import { GoalsService } from 'src/services/goals.service';
-import { Chart } from 'chart.js';
+
+
 
 
 @Component({
@@ -12,24 +14,41 @@ import { Chart } from 'chart.js';
 })
 export class GoalDetailsComponent implements OnInit {
 
-  chart: any = [];
+
+
+  chartDetails: ApexChart = {
+    type: 'pie',
+    toolbar: {
+      show: true
+    }
+  };
+
+  chartLabels = ["Goal Total", "Contributed"];
+
+  chartTitle: ApexTitleSubtitle = {
+    text: 'Goal Breakdown',
+    align: 'center'
+  };
+
+  chartDataLabels: ApexDataLabels = {
+    enabled: true
+  };
+
+ 
+  
   id!: number;
   goal!: Goal;
 
+  goal_amount: any;
 
-  view: any = [500, 500];
-
-  // options
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabels: boolean = true;
-  isDoughnut: boolean = true;
-  legendPosition: any = 'below';
-
-  colorScheme: any = {
-    domain: ['#5AA454', '#A10A28']
-  };
-  data: any;
+  newAmount!: number;
+  currentProgress!: string;
+  newGoalTotal!: string;
+  monthlyPayment: number | undefined;
+  chart: any;
+  newContribute!: number;
+  pieChartData: any =[this.newAmount, this.newContribute];
+  
 
 
   constructor(private goalService: GoalsService, private route: ActivatedRoute) {
@@ -42,47 +61,28 @@ export class GoalDetailsComponent implements OnInit {
     this.goalService.GetGoalById(this.id).subscribe(data => {
       this.goal = data;
     });
-    this.id = this.route.snapshot.params['id'];
-    this.goalService.getChartData(this.id).subscribe(res => {
-      console.log(res)
-
-      let goalTotal = res['goals'].map((res: { main: { goalTotal: any; }; }) => res.main.goalTotal)
-      let contribution = res['goals'].map((res: { main: { contribution: any; }; }) => res.main.contribution)
-      let years = res['goals'].map((res: { dt: any; }) => res.dt)
-
-      let goals: [] = []
-      years.forEach((res: number) => {
-        let jsdate = new Date(res * 1000)
-        goals.push()
-      })
-      this.chart = new Chart('canvas',  {
-        type: 'pie',
-        data: {
-          labels: goals,
-          datasets: [
-            {
-              data: goalTotal,
-              borderColor: '#3cba9f',             
-            },
-            {
-              data: contribution,
-              borderColor: '#ffcc00',
-            },
-          ]
-        },
-        
-      })
-      
-    })
-
-    
-    
+    this.loadGoals(this.id)
   }
-  
+
+  public loadGoals(id: number)
+  {
+    this.goalService.GetGoalById(id).subscribe( data => {
+      console.log(this.pieChartData)
+      this.goal = data;
+      this.newContribute = this.goal.contribute;
+      this.newAmount = this.goal.goalTotal - this.goal.contribute;
+      this.currentProgress = "" + ((this.goal.contribute / this.goal.goalTotal) * 100) + "%"     
+      this.newGoalTotal = "" + (this.newAmount / this.goal.goalTotal) * 100 + "%"
+      // this.pieChartData.datasets[0].data[0] = ((this.goal.contribute / this.goal.goalTotal) * 100);
+      // this.pieChartData.datasets[0].data[1] = (this.newAmount / this.goal.goalTotal) * 100;
+      // this.pieChartData.push(5)
+      // console.log(this.pieChartData)
+      // this.chart?.update();
+      // this.monthlyPayment = Math.round(this.newAmount / (this.goal.years*12));
+      
+      
+    });     
+  };
+ 
 }  
-
-
-
-  
-
 

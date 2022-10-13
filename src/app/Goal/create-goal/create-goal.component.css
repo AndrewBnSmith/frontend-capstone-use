@@ -5,11 +5,12 @@
 
 .result-box{
   
-    width: 50%;
+    width: 40%;
    justify-content: center;
    border-color: black;
   border: 1px;
   border-style: solid;
+  border-radius: 5%;
    
 }
 .monthly{
@@ -27,16 +28,24 @@
 
   
 }
+.total{
+  display: flex;
+  justify-content: center;
+  
+}
 .bottom-border{
   border-bottom: 1px solid rgb(0, 0, 0);
   width: 100%;
   margin-bottom: 3%;
   
 }
-
-.top-content{
-  
+.chartContainer {
+  width: 80%;
+  height: 70%;
+  position: relative;
+  left: 70px;
 }
+
 .top{
 
   display: flex;

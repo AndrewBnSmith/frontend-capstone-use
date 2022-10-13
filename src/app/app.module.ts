@@ -31,6 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { AboutComponent } from './about/about.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { AboutComponent } from './about/about.component';
     NgxChartsModule,
     MatSliderModule,
     NgApexchartsModule,
-    DatePipe
+    DatePipe,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

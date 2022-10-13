@@ -1,11 +1,13 @@
 .right-button{
     background-color: transparent;
+    display: flex;
+    justify-content: center;
     
 }
 .main-container{
-    background-color: #e9f7e9;
+    background-color: #ffffff;
     border-style: solid;
-    border-color: black;
+    border-color: rgb(0, 0, 0);
     border-radius: 5%;
     
 }
@@ -13,6 +15,14 @@
     display: flex;
     justify-content: center;
     margin-top: 5%;
+    size: 200px;
+}
+
+.welcome-banner > h1{
+    font-size: 50px;
+    position: absolute;
+    top: 70px;
+	right: 960px;
 }
 .form-control{
     background-color: transparent;
@@ -29,6 +39,47 @@
 	left: 0px;
 	opacity: 1;
 }
+
+/* .content {
+    padding:20px;
+    width:710px;
+    position:relative;
+    background: rgb(204, 204, 204); 
+    background: rgba(204, 204, 204, 0.5);
+} */
+
+.form-box{
+    background: transparent;
+  border: none;
+  position: relative;
+  display: block;
+  outline: none;
+  width: 400px;
+  height: 30p;
+  top: 100px;
+  right: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+
+}
+
+input {
+    background: transparent;
+   
+  }
+
+.bottom-container{
+    position: relative;
+    top: 120px;
+    left: 60px;
+    
+}
+  
+
+
 
 
 

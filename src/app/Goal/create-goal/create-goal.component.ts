@@ -15,58 +15,43 @@ import { ApexChart, ApexDataLabels, ApexNonAxisChartSeries, ApexTitleSubtitle } 
   styleUrls: ['./create-goal.component.css']
 })
 export class CreateGoalComponent implements OnInit {
+  total!:number;
+  contribute!:number;
 
-	chartSeries: ApexNonAxisChartSeries = [50, 32];
+  chartSeries: ApexNonAxisChartSeries = [0,66];
 
-chartDetails: ApexChart = {
-    type: 'donut',
+  chartDetails: ApexChart = {
+    type: 'pie',
     toolbar: {
       show: true
     }
-};
+  };
 
-chartLabels = ["Total", "Contributed"];
+  chartLabels = ["Goal Total", "Contributed"];
 
-chartTitle: ApexTitleSubtitle = {
-    text: 'Leading Companies',
+  chartTitle: ApexTitleSubtitle = {
+    text: 'Goal Breakdown',
     align: 'center'
-};
+  };
 
-chartDataLabels: ApexDataLabels = {
+  chartDataLabels: ApexDataLabels = {
     enabled: true
-};
+  };
+
 
   goal: Goal = new Goal();
   fromDate!: Date;
   pipe = new DatePipe('en-US');
   newDate!: any;
+  monthly!:number;
 
-
+    
 
   constructor(private goalService : GoalsService , private router : Router) {
     
    }
 
-  ngOnInit(): void {
-  }
-
-  public total!: number;
-  public contribute!: number;
-  public totalYears!: number;
-  public topNumber?:number;
-  public bottomNumber?:number;
-  public month?:number;
-  public payment?:number;
-
-  calculate(){
-	this.month=this.totalYears*12;
-	this.topNumber = this.total;
-	this.bottomNumber = this.contribute;
-	this.payment = Math.round(this.topNumber/ this.contribute)
-	return this.chartSeries = [this.payment]
-  }
-
-
+  ngOnInit(): void {}
 
   saveGoal(){
     this.goalService.createGoal(this.goal).subscribe(data => {
@@ -107,5 +92,26 @@ chartDataLabels: ApexDataLabels = {
   SendDataonChange(event: any) {
     console.log(event.target.value);
   }
+
+  findMonthlyPayment(total:number,contribute:number, year:number){
+    this.monthly = (total-contribute)/(year*12)
+    return this.monthly.toFixed(0)
+  }
+  fillTotal(total:number){
+    this.total = total
+    return console.log("total")
+  }
+  fillContribute(contribute:number){
+    this.contribute = contribute
+    return console.log("contribute")
+  }
+  update(){
+    this.chartSeries.push(this.total,this.contribute)
+    console.log("this is chart array" + this.chartSeries)
+  }
+
+ 
+
+
 
 }

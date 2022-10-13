@@ -5,6 +5,8 @@ export class Goal {
     contribute!: number;
     years!:number;
     image!:string;
+    monthlyPayment!: number;
+    time_in_months!: any;
     
    
 }

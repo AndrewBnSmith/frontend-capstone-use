@@ -14,9 +14,15 @@
           <a href="#" class="card-link">Delete Goal</a>
         </div>
       </div>
-      <div class="chart" *ngIf="chart">
-        <canvas id="canvas">{{ chart }}</canvas>
+      <div class="chartjs-block">
+        <div class="chart-wrapper">
+         
       </div>
+    </div>
+    <div class="chart-wrapper">
+      <apx-chart [series]="pieChartData" [chart]="chartDetails" [labels]="chartLabels" [title]="chartTitle" [dataLabels]="chartDataLabels"></apx-chart>
+  </div>
+      
         
 </div>
 
