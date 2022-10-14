@@ -1,11 +1,12 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Goal } from 'src/app/Models/goal';
 import { GoalsService } from 'src/services/goals.service';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
-import { ApexChart, ApexDataLabels, ApexNonAxisChartSeries, ApexTitleSubtitle } from 'ng-apexcharts';
+import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexNonAxisChartSeries, ApexTitleSubtitle, ChartComponent } from 'ng-apexcharts';
+import { ChartOptions } from 'chart.js';
 
 
 
@@ -15,32 +16,10 @@ import { ApexChart, ApexDataLabels, ApexNonAxisChartSeries, ApexTitleSubtitle } 
   styleUrls: ['./create-goal.component.css']
 })
 export class CreateGoalComponent implements OnInit {
+  
   total!:number;
   contribute!:number;
   goalTotal!:number
-
-  chartSeries: ApexNonAxisChartSeries = [];
-  
-
-  chartDetails: ApexChart = {
-    type: 'pie',
-    toolbar: {
-      show: true
-    }
-  };
-
-  chartLabels = ["Goal Total", "Contributed"];
-
-  chartTitle: ApexTitleSubtitle = {
-    text: 'Goal Breakdown',
-    align: 'center'
-  };
-
-  chartDataLabels: ApexDataLabels = {
-    enabled: true
-  };
-
-
   goal: Goal = new Goal();
   fromDate!: Date;
   pipe = new DatePipe('en-US');
@@ -53,9 +32,7 @@ export class CreateGoalComponent implements OnInit {
     
 
   constructor(private goalService : GoalsService , private router : Router) {
-    this.chartSeries.push(10)
-    this.chartSeries.push(10)
-
+    
    }
 
   ngOnInit(): void {
@@ -108,12 +85,7 @@ export class CreateGoalComponent implements OnInit {
     this.contribute = contribute
     return console.log("contribute")
   }
-  update(){
-    
-    console.log("this is chart array" + this.chartSeries)
-
-    
-  }
+  
   findTotalPayment(total:number,contribute:number){
     this.formattedTotal = (total-contribute)
     if (isNaN(this.formattedTotal))this.formattedTotal= 0
