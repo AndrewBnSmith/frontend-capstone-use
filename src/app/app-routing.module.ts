@@ -31,18 +31,13 @@ const routes: Routes = [
     { path : 'update-goal/:id' , component : UpdateGoalComponent},
     {path:'register',component:RegisterComponent},
     { path : 'details-goal/:id' , component : GoalDetailsComponent},
-    
+
     ] },
-  //   {path:'home-welcome',component:WelcomeHomeComponent,
-  // children : [
-  //   {path: "", component: WelcomeHomeComponent},
-  //   { path : 'login' , component : LoginComponent },
-  //   { path : 'register' , component : RegisterComponent },
-  //   { path : 'about' , component : AboutComponent },
-   
-   
-  //   ] },
-  
+    {
+      path: "**",
+      redirectTo: "home"
+  }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

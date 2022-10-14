@@ -1,11 +1,17 @@
 .card-deck{
     margin-top: 10px;
     margin-left: auto;
-    
-    
-   
    display: flex;
    flex-direction:row;
     flex-wrap:wrap;
+}
+
+.card-body{
+    display: flex;
+
+}
+
+.card{
+    margin-left: 40px;
 }
 

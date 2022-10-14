@@ -33,13 +33,14 @@ export class GoalListComponent implements OnInit {
     this.router.navigate(['/home/update-goal',id]);
   }
 
+
   // toggleDetails(index: any){
   //   this.goals[index]. = !this.goals[index].showDescription;
   // }
 
   deleteGoal(id : number){
     Swal.fire({
-      title: 'Are you sure to delete this goal?',
+      title: 'Are you sure you want to delete this goal?',
       text: "You won't be able to revert back if you hit confirm",
       icon: 'warning',
       showCancelButton: true,

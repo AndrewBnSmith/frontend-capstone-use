@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApexNonAxisChartSeries, ApexChart, ApexTitleSubtitle, ApexDataLabels } from 'ng-apexcharts';
 import { Goal } from 'src/app/Models/goal';
@@ -23,8 +23,10 @@ export class GoalDetailsComponent implements OnInit {
     }
   };
 
-  chartLabels = ["Goal Total", "Contributed"];
-
+ 
+  
+  chartLabels = ["Contributed", "Total"];
+  
   chartTitle: ApexTitleSubtitle = {
     text: 'Goal Breakdown',
     align: 'center'
@@ -47,11 +49,11 @@ export class GoalDetailsComponent implements OnInit {
   monthlyPayment: number | undefined;
   chart: any;
   newContribute!: number;
-  pieChartData: any =[this.newAmount, this.newContribute];
+  pieChartData: any =[];
   
 
 
-  constructor(private goalService: GoalsService, private route: ActivatedRoute) {
+  constructor(private goalService: GoalsService, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {
 
   }
 
@@ -60,6 +62,7 @@ export class GoalDetailsComponent implements OnInit {
     this.goal = new Goal();
     this.goalService.GetGoalById(this.id).subscribe(data => {
       this.goal = data;
+
     });
     this.loadGoals(this.id)
   }
@@ -67,20 +70,21 @@ export class GoalDetailsComponent implements OnInit {
   public loadGoals(id: number)
   {
     this.goalService.GetGoalById(id).subscribe( data => {
-      console.log(this.pieChartData)
+      console.log("test" , this.pieChartData)
+      console.log("goal" , this.goal)
       this.goal = data;
       this.newContribute = this.goal.contribute;
       this.newAmount = this.goal.goalTotal - this.goal.contribute;
       this.currentProgress = "" + ((this.goal.contribute / this.goal.goalTotal) * 100) + "%"     
-      this.newGoalTotal = "" + (this.newAmount / this.goal.goalTotal) * 100 + "%"
-      // this.pieChartData.datasets[0].data[0] = ((this.goal.contribute / this.goal.goalTotal) * 100);
+      this.pieChartData.push(this.newContribute) 
+      this.pieChartData.push(this.newAmount) 
+      console.log("data" , this.pieChartData)
+      this.cdr.markForCheck();
       // this.pieChartData.datasets[0].data[1] = (this.newAmount / this.goal.goalTotal) * 100;
       // this.pieChartData.push(5)
       // console.log(this.pieChartData)
       // this.chart?.update();
       // this.monthlyPayment = Math.round(this.newAmount / (this.goal.years*12));
-      
-      
     });     
   };
  

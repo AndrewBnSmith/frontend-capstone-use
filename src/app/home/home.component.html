@@ -25,7 +25,7 @@
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+          <!-- <a class="nav-link" (click)="destroy()">Sign out</a> -->
         </li>
        
       </ul>
@@ -33,7 +33,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <nav class="col-md-2 d-none d-md-block color sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -77,10 +77,10 @@
               <div class="btn-group mr-2">               
               </div>
               <h4>Welcome, {{user_session.username}}</h4>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                {{user_session.username}}
-              </button>
+              
+                <span data-feather="profile"></span>
+                
+              
             </div>
           </div>
 

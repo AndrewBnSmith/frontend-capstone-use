@@ -8,35 +8,28 @@
           <div class="row">
               <div class="col-md-4">
                   <div class="profile-img">
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                      <div class="file btn btn-lg btn-primary">
-                          Change Photo
-                          <input type="file" name="file"/>
-                      </div>
+                      <img src="https://cdn1.iconfinder.com/data/icons/seo-and-web-development-color/64/seo-and-web-development-05-512.png" alt=""/>
+                     
                   </div>
               </div>
               <div class="col-md-6">
                   <div class="profile-head">
                               <h5>
-                                  {{username}}{{user}}
+                                  <h1>{{user_session.firstName}} {{user_session.lastName}}</h1>
                               </h5>
-                              <h6>
-                                  Web Developer and Designer
-                              </h6>
-                              <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                              <h3>
+                                {{user_session.jobTitle}}
+                              </h3>
+                              
                       <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
                               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                           </li>
-                          <li class="nav-item">
-                              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                          </li>
+                         
                       </ul>
                   </div>
               </div>
-              <div class="col-md-2">
-                  <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-              </div>
+              
           </div>
           <div class="row">
               <div class="col-md-4">
@@ -69,7 +62,7 @@
                                           <label>Name</label>
                                       </div>
                                       <div class="col-md-6">
-                                          <p> {{user_session.username}} {{user_session.username}}</p>
+                                          <p> {{user_session.firstName}} {{user_session.lastName}}</p>
                                       </div>
                                   </div>
                                   <div class="row">
@@ -85,7 +78,7 @@
                                           <label>Phone</label>
                                       </div>
                                       <div class="col-md-6">
-                                          <p>123 456 7890</p>
+                                          <p>{{user_session.phoneNumber}}</p>
                                       </div>
                                   </div>
                                   <div class="row">
@@ -93,7 +86,7 @@
                                           <label>Profession</label>
                                       </div>
                                       <div class="col-md-6">
-                                          <p>Web Developer and Designer</p>
+                                          <p>{{user_session.jobTitle}}</p>
                                       </div>
                                   </div>
                       </div>
@@ -186,16 +179,45 @@
         <!-- Circle Buttons -->
         <div class="card shadow mb-4">
             <a href="#edit_info" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapse">
-            <h6 class="m-0 font-weight-bold text-primary">Edit</h6>
+            <h3 class="m-0 font-weight-bold text-primary">Edit</h3>
             </a>
           <div class="collapse show" id="edit_info">
             <div class="card-body">
               <form class="user" #infoform="ngForm" (ngSubmit) = "onSubmitInfo()">
                 <div class="form-group">
-                  <label for="exampleInputUsername">Username :</label>
-                  <input type="text" class="form-control form-control-user" id="exampleInputUsername" name="username" [(ngModel)]="user_session.username"
-                  #username="ngModel" [class.is-invalid]="username.invalid && username.touched" required>
-                  <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required field</small>
+                    <label for="firstName">First Name :</label>
+                    <input type="text" class="form-control form-control-user" id="firstName" name="firstName" [(ngModel)]="user_session.firstName"
+                    #firstName="ngModel" [class.is-invalid]="firstName.invalid && firstName.touched" required>
+                    <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name is required field</small>
+                        </div>
+                    <!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="form-group">
+                        <label for="lastName">Last Name :</label>
+                        <input type="text" class="form-control form-control-user" id="lastName" name="lastName" [(ngModel)]="user_session.lastName"
+                        #lastName="ngModel" [class.is-invalid]="lastName.invalid && lastName.touched" required>
+                        <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name is required field</small>
+                    </div>
+                    <!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
+
+                    <div class="form-group">
+                        <label for="exampleInputUsername">Username :</label>
+                        <input type="text" class="form-control form-control-user" id="exampleInputUsername" name="username" [(ngModel)]="user_session.username"
+                        #username="ngModel" [class.is-invalid]="username.invalid && username.touched" required>
+                        <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required field</small>
+                    </div>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title :</label>
+                        <input type="text" class="form-control form-control-user" id="jobTitle" name="jobTitle" [(ngModel)]="user_session.jobTitle"
+                        #jobTitle="ngModel" [class.is-invalid]="jobTitle.invalid && jobTitle.touched" required>
+                        <small class="text-danger" [class.d-none]="jobTitle.valid || jobTitle.untouched">Job Title is required field</small>
+                    </div>
+
+                <div class="form-group">
+                  <label for="phoneNumber">Phone Number :</label>
+                  <input type="text" class="form-control form-control-user" id="phoneNumber" name="phoneNumber" [(ngModel)]="user_session.phoneNumber"
+                  #phoneNumber="ngModel" [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched" required>
+                  <small class="text-danger" [class.d-none]="phoneNumber.valid || phoneNumber.untouched">Phone Number is required field</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail">Email :</label>
@@ -212,12 +234,7 @@
                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
                 </div>-->
                 </div>
-                <div class="form-group">
-                  <div class="custom-control custom-checkbox small">
-                    <input type="checkbox" class="custom-control-input" id="infoCheck">
-                    <label class="custom-control-label" for="infoCheck">Confirm update</label>
-                  </div>
-                </div>
+                
                 <input type="submit" [disabled]="infoform.form.invalid" class="btn btn-primary btn-user btn-block" value="Update profile">
               </form>
             </div>
@@ -228,7 +245,7 @@
       <div class="col-lg-6">
         <div class="card shadow mb-4">
             <a href="#edit_pass" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapse">
-            <h6 class="m-0 font-weight-bold text-primary">Edit password</h6>
+            <h3 class="m-0 font-weight-bold text-primary">Edit password</h3>
             </a>
           <div class="collapse show" id="edit_pass">
             <div class="card-body">
@@ -257,12 +274,7 @@
                   (ngModel)="user.password" required #cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched">
                   <small class="text-danger" [class.d-none]="(cpassword.value==npassword.value) || cpassword.untouched">New password and confirm password must be same</small>
                 </div>
-                <div class="form-group">
-                  <div class="custom-control custom-checkbox small">
-                    <input type="checkbox" class="custom-control-input" id="passCheck">
-                    <label class="custom-control-label" for="passCheck">Confirm your update</label>
-                  </div>
-                </div>
+               
                 <input type="submit" [disabled]="passwordform.form.invalid || cpassword.value!=npassword.value || old_password.value!=password.value" class="btn btn-primary btn-user btn-block" value="Update password">
               </form>
               

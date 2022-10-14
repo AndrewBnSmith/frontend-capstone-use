@@ -1,74 +1,74 @@
- <div class="container">
-    <div class="col-md-6 offset-md-3">
-        <h3>Update Goal</h3>
-        <form (ngSubmit) = "onSubmit()">
+<div class="container">
+
+    <div class="col-md-6 ">
+        <h3>Edit Goal</h3>
+        <form #addGoalForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="name">Name :</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="goal.name" name="name">
+                <input type="text" class="form-control" id="name" [(ngModel)]="goal.name" name="name" #name="ngModel"
+                    [class.is-invalid]="name.invalid && name.touched" required>
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">name is required </small>
             </div>
-            <br> 
-             <div class="form-group">
+            <br>
+            <div class="form-group">
                 <label for="goalTotal">Total Goal Amount :</label>
-                <input type="text" class="form-control" id="goalTotal" [(ngModel)]="goal.goalTotal" name="goalTotal"
-                #goalTotal="ngModel" [class.is-invalid]="goalTotal.invalid && goalTotal.touched" required>
-                <small class="text-danger" [class.d-none]="goalTotal.valid || goalTotal.untouched">Total is required </small>
-            </div>  
-             <div class="form-group">
+                <input type="number" class="form-control" appearance="fill" id="goalTotal" [(ngModel)]="goal.goalTotal"
+                    name="goalTotal"  #goalTotal="ngModel" [class.is-invalid]="goalTotal.invalid && goalTotal.touched"
+                    required>
+                <small class="text-danger" [class.d-none]="goalTotal.valid || goalTotal.untouched">Total is required
+                </small>
+
+            </div>
+
+            <div class="form-group">
                 <label for="contribute">Total to contribute :</label>
-                <input type="text" class="form-control" id="contribute" [(ngModel)]="goal.contribute" name="contribute"
-                #contribute="ngModel" [class.is-invalid]="contribute.invalid && contribute.touched" required>
-                <small class="text-danger" [class.d-none]="contribute.valid || contribute.untouched">contribution is required </small>
-            </div>  
-             <div class="form-group">
-                <label for="years">Total years :</label>
-                <input type="number" class="form-control" id="years" [(ngModel)]="goal.years"
-                    name="years" #years="ngModel"
-                    [class.is-invalid]="years.invalid && years.touched" required>
-                <small class="text-danger" [class.d-none]="years.valid || years.untouched">years are required
+                <input type="number" class="form-control" id="contribute" [(ngModel)]="goal.contribute"
+                    name="contribute" #contribute="ngModel"
+                    [class.is-invalid]="contribute.invalid && contribute.touched" required>
+                <small class="text-danger" [class.d-none]="contribute.valid || contribute.untouched">name is
+                    required
                 </small>
             </div>
+
+
+            <div class="form-group">
+                <label for="test">Years :</label>
+                <input type="number" class="form-control" id="years" [(ngModel)]="goal.years" name="years" #years="ngModel"
+                    [class.is-invalid]="years.invalid && years.touched" required>
+                <small class="text-danger" [class.d-none]="years.valid || years.untouched">Years are required
+                </small>
+            </div>
+
             <div class="form-group">
                 <label for="test">Add an Image :</label>
-                <input type="text" class="form-control" id="image" [(ngModel)]="goal.image" name="image" #image="ngModel">            
+                <input type="text" value="https://img.cdn4dd.com/p/fit=cover,width=150,height=150,format=auto,quality=50/media/photos/3c050b3f-23a4-4f1a-9440-c322d120293f-retina-large.jpg" class="form-control" id="image" [(ngModel)]="goal.image" name="image" #image="ngModel">            
             </div>
-            
-            <button class="btn btn-success" type="submit">Update goal</button>
+
+
+
+            <button class="btn btn-success" [disabled]="addGoalForm.form.invalid" type="submit">Add Goal</button>
         </form>
-        </div>
-        <div class="result-box">
-            <div class="monthly">
-                <div class="monthly-data">
-                    <h2>Save:</h2>
-    
-                    
-                </div>
-                <div class="monthly-amount">
-                    <h1>${{(goal.goalTotal-goal.contribute) / (goal.years*12)}}/mo</h1>
-                </div>
-                <div class="month">
-                    <h3>for {{goal.years *12}} Months to reach this goal</h3>
-                </div>           
+    </div>
+    <div class="result-box">
+        <div class="monthly">
+            <div class="monthly-data">
+                <h2>{{goal.name}}</h2>
             </div>
-            <div class="result">
-                <div class="top">
-                    <div class="top-content">
-                        <h2>Goal Name: {{goal.name}}</h2>
-                        <h2>Goal Amount : {{goal.goalTotal}}</h2>
-                        <h2>Total Contributed: {{goal.contribute}}</h2>
-                    </div>
-                </div>
-                <div class="bottom-border">
-    
-                </div>
-                <div class="bottom">
-                    <div class="bottom-content">
-                        <h2>Total: {{goal.goalTotal-goal.contribute}}</h2>
-                  <h2>Your Monthly Payment: ${{(goal.goalTotal-goal.contribute) / (goal.years*12)}}</h2>
-                    </div>
-                    
-                </div> 
-    
+            <div class="monthly-amount">
+                <h1>${{ findMonthlyPayment(goal.goalTotal,goal.contribute,goal.years) }}/mo</h1>
+                
             </div>
+            <div class="total">
+                <h3>{{findTotalPayment(goal.goalTotal, goal.contribute)}}</h3>
+            </div>
+           
+            
         </div>
- </div>
- 
+        <div class="chartContainer">
+            <h1>{{fillTotal(goal.goalTotal)}}</h1>
+            <h1>{{fillContribute(goal.contribute)}}</h1>
+           
+
+    </div>
+
+</div>

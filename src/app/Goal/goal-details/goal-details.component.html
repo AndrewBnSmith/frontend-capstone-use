@@ -1,9 +1,15 @@
 <div class="container">
     <div class="card" style="width: 35%;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src="{{goal.image}}" alt="Card image cap">
         <div class="card-body">
           <h1 class="card-title">{{goal.name}}</h1>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="bar">
+          
+            <div class="container">
+              <div class="skills html">50%</div>
+            </div>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Goal Total: ${{goal.goalTotal}}</li>
@@ -20,7 +26,7 @@
       </div>
     </div>
     <div class="chart-wrapper">
-      <apx-chart [series]="pieChartData" [chart]="chartDetails" [labels]="chartLabels" [title]="chartTitle" [dataLabels]="chartDataLabels"></apx-chart>
+      <apx-chart *ngIf="pieChartData" class="chart" [series]="pieChartData" [chart]="chartDetails" [labels]="chartLabels" [title]="chartTitle" [dataLabels]="chartDataLabels"></apx-chart>
   </div>
       
         

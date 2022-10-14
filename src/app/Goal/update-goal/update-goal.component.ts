@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApexNonAxisChartSeries } from 'ng-apexcharts';
 import { Goal } from 'src/app/Models/goal';
 import { GoalsService } from 'src/services/goals.service';
 import Swal from 'sweetalert2';
@@ -11,6 +12,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./update-goal.component.css']
 })
 export class UpdateGoalComponent implements OnInit {
+  total!:number;
+  contribute!:number;
+  monthly!:number;
+  formattedTotal!: number;
+  chartSeries: ApexNonAxisChartSeries = [0,1];
 
   id!:number;
   goal: Goal = new  Goal();
@@ -67,7 +73,29 @@ export class UpdateGoalComponent implements OnInit {
     },
     error => console.log(error));
   }
+  findMonthlyPayment(total:number,contribute:number, year:number){
+    this.monthly = (total-contribute)/(year*12)
+    if (isNaN(this.monthly))this.monthly= 0
+    return this.monthly.toFixed(0)
+  }
+  findTotalPayment(total:number,contribute:number){
+    this.formattedTotal = (total-contribute)
+    if (isNaN(this.formattedTotal))this.formattedTotal= 0
+    return this.formattedTotal.toFixed(0)
+  }
+  fillTotal(total:number){
+    this.total = total
+    return console.log("total")
+  }
 
+  fillContribute(contribute:number){
+    this.contribute = contribute
+    return console.log("contribute")
+  }
+  update(){
+    this.chartSeries.push(this.total,this.contribute)
+    console.log("this is chart array" + this.chartSeries)
+  }
  
 
 }

@@ -17,6 +17,9 @@
     margin-top: 5%;
     size: 200px;
 }
+.bottom-container{
+    
+}
 
 .welcome-banner > h1{
     font-size: 50px;
@@ -40,6 +43,9 @@
 	opacity: 1;
 }
 
+
+
+
 /* .content {
     padding:20px;
     width:710px;
@@ -55,9 +61,9 @@
   display: block;
   outline: none;
   width: 400px;
-  height: 30p;
-  top: 100px;
-  right: 400px;
+  height: 760;
+  top: 30px;
+  right: 450px;
   margin: 0 auto;
   padding: 10px;
   color: rgb(0, 0, 0);
@@ -70,13 +76,13 @@ input {
     background: transparent;
    
   }
+  .test{
+    margin-top: 10px;
+  }
 
-.bottom-container{
-    position: relative;
-    top: 120px;
-    left: 60px;
-    
-}
+
+
+
   
 
 

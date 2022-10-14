@@ -18,7 +18,7 @@ export class CreateGoalComponent implements OnInit {
   total!:number;
   contribute!:number;
 
-  chartSeries: ApexNonAxisChartSeries = [0,66];
+  chartSeries: ApexNonAxisChartSeries = [0,1];
 
   chartDetails: ApexChart = {
     type: 'pie',
@@ -44,6 +44,7 @@ export class CreateGoalComponent implements OnInit {
   pipe = new DatePipe('en-US');
   newDate!: any;
   monthly!:number;
+  formattedTotal!:number
 
     
 
@@ -79,15 +80,7 @@ export class CreateGoalComponent implements OnInit {
 
   }
 
-  changeFormat(fromDate: Date) {
-    let ChangedFormat = this.pipe.transform(this.fromDate, 'YYYY/MM/dd');
-    this.newDate = ChangedFormat;
-  }
-
-  onClick() {
-    this.changeFormat(this.fromDate);
-    console.log(this.newDate);
-  }
+  
 
   SendDataonChange(event: any) {
     console.log(event.target.value);
@@ -95,7 +88,9 @@ export class CreateGoalComponent implements OnInit {
 
   findMonthlyPayment(total:number,contribute:number, year:number){
     this.monthly = (total-contribute)/(year*12)
+    if (isNaN(this.monthly))this.monthly= 0;
     return this.monthly.toFixed(0)
+
   }
   fillTotal(total:number){
     this.total = total
@@ -108,6 +103,11 @@ export class CreateGoalComponent implements OnInit {
   update(){
     this.chartSeries.push(this.total,this.contribute)
     console.log("this is chart array" + this.chartSeries)
+  }
+  findTotalPayment(total:number,contribute:number){
+    this.formattedTotal = (total-contribute)
+    if (isNaN(this.formattedTotal))this.formattedTotal= 0
+    return this.formattedTotal.toFixed(0)
   }
 
  

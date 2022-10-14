@@ -6,6 +6,7 @@ export class Goal {
     years!:number;
     image!:string;
     monthlyPayment!: number;
+    formattedTotal!:number
     time_in_months!: any;
     
    
