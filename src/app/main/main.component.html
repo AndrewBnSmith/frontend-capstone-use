@@ -33,6 +33,30 @@
     </div>
   </div>
 </div>
+<body>
+  <div class="goal-container">
+      <div class="goal-team-container">
+          <div class="goal-text">Current Goals</div>
+      </div>
+      <div class="goal-row">
+          <!--First User design starts here-->
+          <div class="goal-profile-card" *ngFor="let goal of goalList">
+              <div class="goal-profile-content">
+                  <div class="goal-profile-image">
+                      <img class="goal-img" src="{{goal.image}}" alt="first user">
+                  </div>
+                  <div class="goal-desc">
+                      <h2>{{goal.name}}</h2>
+                      
+                  </div>
+                  <div class="goal-btn-div">
+                      <button class="goal-btn"><i class="fa fa-facebook" style="padding-right: 10px;"></i>Follow</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
 
 
 

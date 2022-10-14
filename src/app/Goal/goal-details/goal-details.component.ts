@@ -2,7 +2,9 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApexNonAxisChartSeries, ApexChart, ApexTitleSubtitle, ApexDataLabels } from 'ng-apexcharts';
 import { Goal } from 'src/app/Models/goal';
+import { User } from 'src/app/Models/user';
 import { GoalsService } from 'src/services/goals.service';
+import { RegistrationService } from 'src/services/registration.service';
 
 
 
@@ -37,7 +39,8 @@ export class GoalDetailsComponent implements OnInit {
   };
 
  
-  
+  user_session : any;
+  user : User = new User();
   id!: number;
   goal!: Goal;
 
@@ -53,7 +56,7 @@ export class GoalDetailsComponent implements OnInit {
   
 
 
-  constructor(private goalService: GoalsService, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {
+  constructor(private goalService: GoalsService, private route: ActivatedRoute, private cdr: ChangeDetectorRef, private service : RegistrationService) {
 
   }
 
@@ -65,6 +68,11 @@ export class GoalDetailsComponent implements OnInit {
       window.dispatchEvent(new Event('resize'))
 
     });
+    this.user_session=sessionStorage.getItem("user_id");
+      this.service.GetUserById(this.user_session).subscribe(data => {
+        this.user_session = data;
+        console.log(this.user_session);
+      })
     this.loadGoals(this.id)
   }
 
