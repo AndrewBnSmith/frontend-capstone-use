@@ -44,6 +44,7 @@ export class GoalDetailsComponent implements OnInit {
   id!: number;
   goal!: Goal;
 
+
   goal_amount: any;
 
   newAmount!: number;
