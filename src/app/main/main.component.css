@@ -14,4 +14,35 @@
 .card{
     margin-left: 40px;
 }
+.card-box, .da-card {
+    background-color: rgb(207, 203, 203);
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 28px rgb(0 0 0 / 8%);
+    box-shadow: 0 0 28px rgb(0 0 0 / 8%);
+}
+.weight-500 {
+    font-weight: 500;
+}
+
+.font-20 {
+    font-size: 20px;
+    line-height: 1.5em;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.text-capitalize {
+    text-transform: capitalize!important;
+}
+.text-blue {
+    color: #1b00ff;
+}
+
+.weight-600 {
+    font-weight: 600;
+}
+.font-30 {
+    font-size: 30px;
+    line-height: 1.33em;
+}
 
