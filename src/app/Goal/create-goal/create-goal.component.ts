@@ -17,8 +17,10 @@ import { ApexChart, ApexDataLabels, ApexNonAxisChartSeries, ApexTitleSubtitle } 
 export class CreateGoalComponent implements OnInit {
   total!:number;
   contribute!:number;
+  goalTotal!:number
 
-  chartSeries: ApexNonAxisChartSeries = [0,1];
+  chartSeries: ApexNonAxisChartSeries = [];
+  
 
   chartDetails: ApexChart = {
     type: 'pie',
@@ -46,13 +48,19 @@ export class CreateGoalComponent implements OnInit {
   monthly!:number;
   formattedTotal!:number
 
+  
+
     
 
   constructor(private goalService : GoalsService , private router : Router) {
-    
+    this.chartSeries.push(10)
+    this.chartSeries.push(10)
+
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   saveGoal(){
     this.goalService.createGoal(this.goal).subscribe(data => {
@@ -101,14 +109,17 @@ export class CreateGoalComponent implements OnInit {
     return console.log("contribute")
   }
   update(){
-    this.chartSeries.push(this.total,this.contribute)
+    
     console.log("this is chart array" + this.chartSeries)
+
+    
   }
   findTotalPayment(total:number,contribute:number){
     this.formattedTotal = (total-contribute)
     if (isNaN(this.formattedTotal))this.formattedTotal= 0
     return this.formattedTotal.toFixed(0)
   }
+  
 
  
 

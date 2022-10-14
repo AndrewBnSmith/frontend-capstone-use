@@ -12,7 +12,7 @@
             <br>
             <div class="form-group">
                 <label for="goalTotal">Total Goal Amount :</label>
-                <input type="number" class="form-control" appearance="fill" id="goalTotal" [(ngModel)]="goal.goalTotal"
+                <input type="number"  class="form-control" appearance="fill" id="goalTotal" [(ngModel)]="goal.goalTotal"
                     name="goalTotal"  #goalTotal="ngModel" [class.is-invalid]="goalTotal.invalid && goalTotal.touched"
                     required>
                 <small class="text-danger" [class.d-none]="goalTotal.valid || goalTotal.untouched">Total is required
@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 <label for="contribute">Total to contribute :</label>
-                <input type="number" class="form-control" id="contribute" [(ngModel)]="goal.contribute"
+                <input type="number"  class="form-control" id="contribute" [(ngModel)]="goal.contribute"
                     name="contribute" #contribute="ngModel"
                     [class.is-invalid]="contribute.invalid && contribute.touched" required>
                 <small class="text-danger" [class.d-none]="contribute.valid || contribute.untouched">name is
@@ -60,14 +60,12 @@
             </div>
             <div class="total">
                 <h3>Total: ${{findTotalPayment(goal.goalTotal, goal.contribute)}}</h3>
+               
             </div>
             
         </div>
-        <div class="chartContainer">
-            <h1>{{fillTotal(goal.goalTotal)}}</h1>
-            <h1>{{fillContribute(goal.contribute)}}</h1>
-            <apx-chart [series]="chartSeries" [chart]="chartDetails" [labels]="chartLabels" [title]="chartTitle" [dataLabels]="chartDataLabels"></apx-chart>
-        </div>
+      
+         
 
     </div>
 

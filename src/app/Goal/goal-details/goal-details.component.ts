@@ -62,6 +62,7 @@ export class GoalDetailsComponent implements OnInit {
     this.goal = new Goal();
     this.goalService.GetGoalById(this.id).subscribe(data => {
       this.goal = data;
+      window.dispatchEvent(new Event('resize'))
 
     });
     this.loadGoals(this.id)

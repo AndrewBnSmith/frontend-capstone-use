@@ -55,7 +55,9 @@
 } */
 
 .form-box{
-    background: transparent;
+  background: transparent;
+  opacity: .7;
+  background-color: rgb(255, 255, 255);
   border: none;
   position: relative;
   display: block;
