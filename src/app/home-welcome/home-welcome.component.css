@@ -1,6 +1,6 @@
 .banner{
-    background-image:url('../../assets/img/walk.jpg') ;
-    height: 610px;
+    background-image:url('../../assets/img/bannerimg.jpg') ;
+    height: 500px;
     background-position: center;
     background-size: cover;
 }
@@ -22,19 +22,18 @@
 .stepBox h1{
     font-size: 50px;
     font-weight:bold;
-   color: white;
-    background-color: rgb(#00683e);
+   
+    background-color: green;
 
     
    
 }
-
 .stepBox{
-    color: #00683e;
+    color: green;
     text-align: center;
     padding: 20px 20px;
     border-radius:5px ;
-    background-color: #00683e;
+    background-color: green;
     font-size: 30px;
     font-weight:bold;
 
@@ -44,15 +43,21 @@
     font-style: italic;
 
 }
-.highlight{
-    color:#00683e;
+.heightlight{
+    color: var(--primary-color);
      font-weight: bold;
-     
+     text-decoration: underline;
 }
-a{
-    color: white;
-    text-decoration: none;
+.navbar-light .navbar-nav .nav-link
+{
+    color: var(--secondary-color);
 }
-a:hover 
-{ color: #f7ee9c;
+.navbar-light .navbar-nav .nav-link.active-link
+{
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+nav{
+    position: fixed;
+    top: 0px;
 }
