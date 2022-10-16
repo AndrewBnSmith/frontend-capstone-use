@@ -1,0 +1,11 @@
+.image{
+    width: 40px;
+}
+.name{
+    display: flex;
+    align-items: center;
+}
+.name>h4{
+    padding-right: 15px;
+    padding-top: 10px;
+}

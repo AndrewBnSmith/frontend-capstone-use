@@ -76,12 +76,18 @@
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">               
               </div>
-              <h4>Welcome, {{user_session.username}}</h4>
+              <div class="name">
+                <h4>Welcome, {{user_session.firstName}}</h4>
+                <img routerlink="/profile"class="image" src="\assets\img\profile-icon.png" alt="">
+              </div>
+              
+              
               
                 <span data-feather="profile"></span>
                 
               
             </div>
+            
           </div>
 
           <router-outlet></router-outlet>

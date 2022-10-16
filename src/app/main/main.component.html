@@ -1,62 +1,39 @@
-<!-- <div class="card-body">
-  <div class="card " *ngFor="let goal of goalList" style="width: 18rem;">
-    <img class="card-img-top" src="{{goal.image}}" alt="Card image cap">
-    <div class="card-body">
-      <h2 class="card-title">{{goal.name}}</h2>
-      <p class="card-text"></p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Goal Amount: ${{goal.goalTotal - goal.contribute}}</li>
-      <li class="list-group-item">{{goal.years *12}} payments of ${{(goal.goalTotal-goal.contribute) / (goal.years*12)}}</li>
-    </ul>
-    <div class="card-body">
-      <button (click)="updateGoal(goal.id)" class="btn btn-success">Update</button>
-      <button (click)="detailsGoal(goal.id)" class="btn btn-secondary" style="margin-left: 2%;"> Goal Details</button>
-    </div>
-  </div>
-</div> -->
-
-
-<div class="card-box pd-20 height-100-p mb-30">
-  <div class="row align-items-center">
-    <div class="col-md-4">
-      <img src="https://deskapp-dashboard.herokuapp.com/vendors/images/banner-img.png" alt="">
-    </div>
-    <div class="col-md-8">
-      <h4 class="font-20 weight-500 mb-10 text-capitalize">
-        Welcome back <div class="weight-600 font-30 text-blue"></div>
-      
-      <div class="weight-600 font-30 text-blue">{{user_session.username}}</div>
-      </h4>
-      
-      <p class="font-18 max-width-600">At EveryDollar, Inc. our mission is to collaborate with our clients to make smart financial choices through uncompromising integrity, trust, and personalized service..</p>
-    </div>
-  </div>
-</div>
-<body>
-  <div class="goal-container">
-      <div class="goal-team-container">
-          <div class="goal-text">Current Goals</div>
+<div class="over">
+  <div class="card-box pd-20 height-100-p mb-30">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <img src="https://deskapp-dashboard.herokuapp.com/vendors/images/banner-img.png" alt="">
       </div>
-      <div class="goal-row">
-          <!--First User design starts here-->
-          <div class="goal-profile-card" *ngFor="let goal of goalList">
-              <div class="goal-profile-content">
-                  <div class="goal-profile-image">
-                      <img class="goal-img" src="{{goal.image}}" alt="first user">
-                  </div>
-                  <div class="goal-desc">
-                      <h2>{{goal.name}}</h2>
-                      
-                  </div>
-                  <div class="goal-btn-div">
-                      <button class="goal-btn"><i class="fa fa-facebook" style="padding-right: 10px;"></i>Follow</button>
-                  </div>
-              </div>
+      <div class="col-md-8">
+        <h4 class="font-20 weight-500 mb-10 text-capitalize">
+          Welcome back, <div class="weight-600 font-30 text-blue"></div>
+        
+        <div class="weight-600 font-30 text-blue">{{user_session.firstName}}</div>
+        </h4>
+        
+        <p class="font-18 max-width-600">At EveryDollar, Inc. our mission is to collaborate with our clients to make smart financial choices through uncompromising integrity, trust, and personalized service..</p>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="container">
+      <div class="card" *ngFor="let goal of goalList">
+        <div class="imgBx">
+          <img src="{{goal.image}}">
+        </div>
+        <div class="contentBx">
+          <h2>{{goal.name}}</h2>
+          <div class="size">
+            <h2>Goal Amount: ${{goal.goalTotal}}</h2>
           </div>
+          <a (click)="detailsGoal(goal.id)">View Details</a>
+        </div>
       </div>
+    </div>
+    
   </div>
-</body>
+  
+</div>
 
 
 

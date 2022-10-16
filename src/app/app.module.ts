@@ -33,6 +33,7 @@ import { DatePipe } from '@angular/common';
 import { AboutComponent } from './about/about.component';
 import { NgChartsModule } from 'ng2-charts';
 
+
 @NgModule({
   declarations: [
     AppComponent,

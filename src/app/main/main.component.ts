@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GoalsService } from 'src/services/goals.service';
 import { RegistrationService } from 'src/services/registration.service';
 import { Goal } from '../Models/goal';
 import { User } from '../Models/user';
+import * as confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-main',
@@ -11,6 +12,7 @@ import { User } from '../Models/user';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
   goals!: Goal[];
   goalList!: Goal[];
   user_session : any;
@@ -18,6 +20,9 @@ export class MainComponent implements OnInit {
 
 
   constructor(private goalService : GoalsService , private router : Router, private service : RegistrationService) { }
+
+    
+  
 
   ngOnInit(): void {
     this.getGoals();
@@ -28,6 +33,8 @@ export class MainComponent implements OnInit {
       console.log(this.user_session);
   })
   }
+
+
   
 
   getGoals(){
@@ -51,7 +58,7 @@ export class MainComponent implements OnInit {
   detailsGoal(id:number){
     this.router.navigate(['/home/details-goal',id]);
   }
-
+ 
   
 
 }
