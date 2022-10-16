@@ -78,7 +78,12 @@
               </div>
               <div class="name">
                 <h4>Welcome, {{user_session.firstName}}</h4>
-                <img routerlink="/profile"class="image" src="\assets\img\profile-icon.png" alt="">
+                <!-- <a href=""></a>
+                <img routerlink="/profile"class="image" src="\assets\img\profile-icon.png" alt="" > -->
+                <a routerlink="/profile">
+                  <img  class="image"src="\assets\img\profile-icon.png" alt="profile image" />
+                </a>
+                <button (click)=destroy() class="btn btn-danger"> Log Out</button>
               </div>
               
               

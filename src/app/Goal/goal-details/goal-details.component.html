@@ -4,7 +4,7 @@
 
     <div class="card-header">
 
-      <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+      <img src="{{goal.image}}" alt="rover" />
 
     </div>
 
@@ -18,11 +18,7 @@
 
       </h4>
 
-      <p>
-
-        This goal number is {{goal.id}}
-
-      </p>
+      
 
       <h4>
 
@@ -32,7 +28,7 @@
 
       <h4>
 
-        Monthly Saving: ${{goal.monthlyPayment}}
+        Monthly Saving: ${{ findMonthlyPayment(goal.goalTotal,goal.contribute,goal.years) }}/mo
 
       </h4>
 

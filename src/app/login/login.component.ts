@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.service.loginUserFromRemote(this.user).subscribe(
       data =>{
         Swal.fire({
-          position: 'center',
+          position: 'top',
           icon: 'success',
           title: 'Welcome '+data.username,
           showConfirmButton: false,

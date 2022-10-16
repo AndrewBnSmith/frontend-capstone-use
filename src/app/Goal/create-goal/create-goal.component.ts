@@ -75,7 +75,6 @@ export class CreateGoalComponent implements OnInit {
     this.monthly = (total-contribute)/(year*12)
     if (isNaN(this.monthly))this.monthly= 0;
     return this.monthly.toFixed(0)
-
   }
   fillTotal(total:number){
     this.total = total

@@ -50,7 +50,7 @@ export class GoalDetailsComponent implements OnInit {
   newAmount!: number;
   currentProgress!: string;
   newGoalTotal!: string;
-  monthlyPayment: number | undefined;
+  monthlyPayment!: number 
   chart: any;
   newContribute!: number;
   pieChartData: any =[];
@@ -62,19 +62,27 @@ export class GoalDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.id = this.route.snapshot.params['id'];
     this.goal = new Goal();
     this.goalService.GetGoalById(this.id).subscribe(data => {
       this.goal = data;
       window.dispatchEvent(new Event('resize'))
-
+      this.monthlyPayment = (Math.round(this.goal.goalTotal - this.goal.contribute) / (this.goal.years*12));
+      
     });
+    
     this.user_session=sessionStorage.getItem("user_id");
       this.service.GetUserById(this.user_session).subscribe(data => {
         this.user_session = data;
         console.log(this.user_session);
       })
     this.loadGoals(this.id)
+  }
+  findMonthlyPayment(total:number,contribute:number, year:number){
+    this.monthlyPayment = (total-contribute)/(year*12)
+    if (isNaN(this.monthlyPayment))this.monthlyPayment= 0;
+    return this.monthlyPayment.toFixed(0)
   }
 
   public loadGoals(id: number)
@@ -89,12 +97,7 @@ export class GoalDetailsComponent implements OnInit {
       this.pieChartData.push(this.newContribute) 
       this.pieChartData.push(this.newAmount) 
       console.log("data" , this.pieChartData)
-      this.cdr.markForCheck();
-      // this.pieChartData.datasets[0].data[1] = (this.newAmount / this.goal.goalTotal) * 100;
-      // this.pieChartData.push(5)
-      // console.log(this.pieChartData)
-      // this.chart?.update();
-      // this.monthlyPayment = Math.round(this.newAmount / (this.goal.years*12));
+      this.cdr.markForCheck();   
     });     
   };
  

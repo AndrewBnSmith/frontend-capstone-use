@@ -21,7 +21,7 @@ const routes: Routes = [
   {path:'',redirectTo : 'home-welcome' , pathMatch : 'full'},
   { path : "home/about" , component : AboutComponent },
   {path:'home-welcome/register',component:RegisterComponent},
-  {path:'about',component:AboutComponent},
+  {path:'contact-us',component:AboutComponent},
   {path:'about-us',component:AboutUsComponent},
   {path:'home',component:HomeComponent,
   children : [
@@ -34,6 +34,7 @@ const routes: Routes = [
     {path:'register',component:RegisterComponent},
     { path : 'details-goal/:id' , component : GoalDetailsComponent},
     { path : 'about-us' , component : AboutUsComponent},
+    { path : 'contact-us' , component : AboutComponent},
 
     ] },
     {
