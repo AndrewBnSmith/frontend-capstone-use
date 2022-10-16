@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { UpdateGoalComponent } from './Goal/update-goal/update-goal.component';
 import { WelcomeHomeComponent } from './welcome-home/welcome-home.component';
 import { AboutComponent } from './about/about.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 const routes: Routes = [
   {path:'',component:WelcomeHomeComponent},
   {path:'home-welcome/login',component:LoginComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path : "home/about" , component : AboutComponent },
   {path:'home-welcome/register',component:RegisterComponent},
   {path:'about',component:AboutComponent},
+  {path:'about-us',component:AboutUsComponent},
   {path:'home',component:HomeComponent,
   children : [
     { path : '' , component : MainComponent },
@@ -31,6 +33,7 @@ const routes: Routes = [
     { path : 'update-goal/:id' , component : UpdateGoalComponent},
     {path:'register',component:RegisterComponent},
     { path : 'details-goal/:id' , component : GoalDetailsComponent},
+    { path : 'about-us' , component : AboutUsComponent},
 
     ] },
     {

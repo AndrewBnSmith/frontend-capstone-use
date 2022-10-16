@@ -32,6 +32,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { AboutComponent } from './about/about.component';
 import { NgChartsModule } from 'ng2-charts';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { NgChartsModule } from 'ng2-charts';
     NavbarComponent,
     FooterComponent,
     AboutComponent,
+    AboutUsComponent,
 
     
  
